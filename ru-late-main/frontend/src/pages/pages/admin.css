@@ -1,0 +1,31 @@
+table.table {
+  border: 1px solid #ad190e;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th.table, td.table {
+  border: 1px solid #ad190e;
+  border-collapse: collapse;  
+  text-align: left;
+  padding: 8px;
+}
+
+tr.table:nth-child(even){background-color: #FFCCCB
+}
+
+th.table {
+  position: sticky;
+  top: 0; 
+  background-color: #ad190e;
+  color: white;
+}
+input[type=text].table, select.table {
+    width: 100%;
+    padding: 6px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: medium;
+  }

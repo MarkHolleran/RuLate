@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    justify-content: center;
+    height: 82vh;
+    overflow: auto;
+}
+
+.container > div {
+    padding: 10px;
+    width: 32%;
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, .75);
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, .75);
+    text-align: left;
+    max-height: 82vh;
+    overflow: auto
+}
+
+.userInformationSection {
+    margin-top: 10px;
+}
+
+.editAccount {
+    text-align: center;
+}
+
+.editAccountContainer {
+    margin: auto;
+    width: fit-content;
+    max-height: 82vh;
+    overflow: auto
+}
+
+.deleteAccountCheckbox {
+    width: 15px;
+    height: 15px;
+}
+
+.title {
+    color: #BE185D;
+    font-size: 30px; 
+    background-color: #F3F4F6; 
+    text-align: center; 
+    height: 10vh; 
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center; 
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased; 
+    font-weight: bold
+}

@@ -1,0 +1,33 @@
+{
+  "name": "ru-late",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorchen796/ru-late.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victorchen796/ru-late/issues"
+  },
+  "homepage": "https://github.com/victorchen796/ru-late#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "ssh2": "^1.11.0",
+    "xss-clean": "^0.1.1"
+  }
+}

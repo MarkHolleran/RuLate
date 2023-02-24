@@ -1,0 +1,3883 @@
+{
+	"info": {
+		"_postman_id": "40f79631-49f6-4b25-addc-7491135358bc",
+		"name": "RuLate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24636426"
+	},
+	"item": [
+		{
+			"name": "Add User",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let email = 'johnnyappleseed@gmail.com';",
+							"pm.environment.set('email', email);",
+							"let name = 'Johnathan Apples';",
+							"pm.environment.set('name', name);",
+							"let password = 'VerySecure123';",
+							"pm.environment.set('password', password);",
+							"let phone = '8937654123';",
+							"pm.environment.set('phone', phone);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('A Non-Existing User Can Create An Account', function (){",
+							"    pm.response.to.have.status(201);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Add User",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let email = 'johnnyappleseed@gmail.com';",
+							"pm.environment.set('email', email);",
+							"let name = 'Johnathan Apples';",
+							"pm.environment.set('name', name);",
+							"let password = 'VerySecure123';",
+							"pm.environment.set('password', password);",
+							"let phone = '8937654123';",
+							"pm.environment.set('phone', phone);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('An Existing User Can\\'t Create An Account', function (){",
+							"    pm.response.to.have.status(409);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('A Non-Existing User Can\\'t Log In', function (){",
+							"    pm.response.to.have.status(401);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password1",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valid Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('An Existing User Can Login', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    pm.environment.set('token', data.token);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get Curent User Id using Token', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    pm.environment.set('userId', data.userId);",
+							"})",
+							"pm.test(\"Correct Email Received\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.email).to.eql(pm.environment.get(\"email\"));",
+							"});",
+							"pm.test(\"Correct Name Received\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.name).to.eql(pm.environment.get(\"name\"));",
+							"});",
+							"pm.test(\"Correct Phone Received\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.phone).to.eql(pm.environment.get(\"phone\"));",
+							"});",
+							"pm.test(\"Admin Status Received\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.admin).to.be.oneOf([1,0]);",
+							"    pm.environment.set('admin', data.admin);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Can't Access Other User's Information",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('A Regular User Can\\'t Access Another User\\'s Information', function (){",
+							"    pm.response.to.have.status(403);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/get/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"get",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empty Response Body Update User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('No Changes Are Made to a User if Request Body is Empty', function (){",
+							"    pm.response.to.have.status(400);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Same Response Body Update User Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('No Changes Are Made to a User if Request Body is the Same as Current Values', function (){",
+							"    pm.response.to.have.status(400);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valid Response Body Update User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Changes Are Made to a User if Request Body is the Different From Current Values', function (){",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let email2 = 'nacho@cheese.spread';",
+							"pm.environment.set('email2', email2);",
+							"let name2 = 'Apple Phone';",
+							"pm.environment.set('name2', name2);;",
+							"let phone2 = '0000000000';",
+							"pm.environment.set('phone2', phone2);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email2}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "{{name2}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone2}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Can't Update Their Email to an Existing Account Email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('A User Can\\'t Update their Email if that Email is in Use', function (){",
+							"    pm.response.to.have.status(409);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let adminEmail = 'admin@admin.com';",
+							"pm.environment.set('adminEmail', adminEmail);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{adminEmail}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Can't Upate Another User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('A User Can\\'t Update Another User\\'s Information', function (){",
+							"    pm.response.to.have.status(403);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email2}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "{{name2}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone2}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/update/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"update",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check if User was Successfully Updated",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('The User Can Login with Updated Login Info', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    pm.environment.set('token', data.token);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email2}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check if All of User's Values have been Updated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Compare User Id using Token', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.userId).to.eql(pm.environment.get(\"userId\"));",
+							"})",
+							"pm.test(\"Compare Email Received\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.email).to.eql(pm.environment.get(\"email2\"));",
+							"});",
+							"pm.test(\"Compare Name Received\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.name).to.eql(pm.environment.get(\"name2\"));",
+							"});",
+							"pm.test(\"Compare Phone Received\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.phone).to.eql(pm.environment.get(\"phone2\"));",
+							"});",
+							"pm.test(\"Compare Status Received\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.admin).to.eql(pm.environment.get(\"admin\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Valid User Favorite",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let routeId = '4015030';",
+							"pm.environment.set('routeId', routeId);",
+							"let stopId = '4259062';",
+							"pm.environment.set('stopId', stopId);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('A User Can Add a Valid Route/Stop Pair', function (){",
+							"    pm.response.to.have.status(201);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text"
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/favorites/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"favorites",
+						"add"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Duplicate User Favorite",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('A User Can Not Add Existing Favorite', function (){",
+							"    pm.response.to.have.status(409);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text"
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/favorites/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"favorites",
+						"add"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Route/Stop Pair Added",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('A User Can Not Add Non-existing Pair', function (){",
+							"    pm.response.to.have.status(404);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "8436273",
+							"type": "text"
+						},
+						{
+							"key": "stopId",
+							"value": "9374859",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/favorites/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"favorites",
+						"add"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users Favorite Routes",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Display User Favorite Routes', function (){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"pm.test('Compare Route/Stop Pair using Token', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    const array = [pm.environment.get(\"stopId\")]",
+							"    pm.expect(data[0][\"routeId\"]).to.eql(pm.environment.get(\"routeId\"));",
+							"    pm.expect(data[0][\"stopIdList\"]).to.eql(array);",
+							"    ",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/favorites/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"favorites",
+						"get"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Users Favorites",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Display User Favorite Routes', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    console.log(data)",
+							"    //pm.expect(data.userId).to.eql(pm.environment.get(\"userId\"));",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/favorites/getDict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"favorites",
+						"getDict"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Can't Access Another User's Favorites",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Can\\'t Access Another User\\'s Favorites', function (){",
+							"    pm.response.to.have.status(403);",
+							"    const data = pm.response.json();",
+							"    console.log(data)",
+							"    //pm.expect(data.userId).to.eql(pm.environment.get(\"userId\"));",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/favorites/getByUser/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"favorites",
+						"getByUser",
+						"0"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete A Users Favorite Route",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('An Existing Favorite Route Can be Deleted', function (){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text"
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/favorites/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"favorites",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Delete A Users Favorite Route",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('An Non-Existing Favorite Route Cannot be Deleted', function (){",
+							"    pm.response.to.have.status(404);",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text"
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/favorites/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"favorites",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Routes",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Can Get All Routes', function (){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"pm.test(\"Get all Routes is not Empty and Includes at least one Route\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.length).to.be.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"getAll"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Routes Based on Stop",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Displays Routes By Stop Id', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    console.log(data)",
+							"    pm.expect(data).to.be.an(\"array\");",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/getByStop/{{stopId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"getByStop",
+						"{{stopId}}"
+					],
+					"query": [
+						{
+							"key": "stopId:",
+							"value": "4015030",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Get Routes Based on Stop",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Can\\'t Access Route By Non-Existent Stop Id', function (){",
+							"    pm.response.to.have.status(404);",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/getByStop/123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"getByStop",
+						"123456"
+					],
+					"query": [
+						{
+							"key": "stopId:",
+							"value": "4015030",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Route By RouteId",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Can Get Route by Id', function (){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"pm.test('Check if User Recieved Route Name', function (){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.name).to.be.a(\"string\");",
+							"})",
+							"pm.test('Check if User Recieved Route Id', function (){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.routeId).to.be.a(\"string\");",
+							"})",
+							"pm.test('Check if User Recieved Route Color', function (){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.color).to.be.a(\"string\");",
+							"})",
+							"pm.test('Check if User Recieved Route Number', function (){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.enabled).to.be.a(\"number\");",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/get/{{routeId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"get",
+						"{{routeId}}"
+					],
+					"query": [
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Get Route By RouteId",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Can\\'t Access Non-Existent Route', function (){",
+							"    pm.response.to.have.status(404);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/get/123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"get",
+						"123456"
+					],
+					"query": [
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Can't Enable Route",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Can\\'t Enable a Route', function (){",
+							"    pm.response.to.have.status(403);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/enable/123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"enable",
+						"123456"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Can't Disable Route",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Can\\'t Disable a Route', function (){",
+							"    pm.response.to.have.status(403);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/disable/123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"disable",
+						"123456"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Stops",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Can Get All Stops', function (){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"pm.test(\"Get all Stops is not Empty and Includes at least one Stop\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.length).to.be.above(1);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/stops/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"stops",
+						"getAll"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Stops Based on Route",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Displays Stops By Route Id', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    console.log(data)",
+							"    pm.expect(data).to.be.an(\"array\");",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/stops/getByRoute/{{routeId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"stops",
+						"getByRoute",
+						"{{routeId}}"
+					],
+					"query": [
+						{
+							"key": "stopId:",
+							"value": "4015030",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Get Stops Based on Route",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Can\\'t Get Stops By Invalid Route Id', function (){",
+							"    pm.response.to.have.status(404);",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/stops/getByRoute/123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"stops",
+						"getByRoute",
+						"123456"
+					],
+					"query": [
+						{
+							"key": "stopId:",
+							"value": "4015030",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Stop By Stop Id",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Can Get Stop by Id', function (){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"pm.test('Check if User Recieved Stop Name', function (){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.name).to.be.a(\"string\");",
+							"})",
+							"pm.test('Check if User Recieved Stop Id', function (){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.stopId).to.be.a(\"string\");",
+							"})",
+							"pm.test('Check if User Recieved Route Color', function (){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.lat).to.be.a(\"number\");",
+							"})",
+							"pm.test('Check if User Recieved Route Number', function (){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.lng).to.be.a(\"number\");",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/stops/get/{{stopId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"stops",
+						"get",
+						"{{stopId}}"
+					],
+					"query": [
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Get Stop By Stop Id",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Can\\'t Get Invalid Stop by Id', function (){",
+							"    pm.response.to.have.status(404);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/stops/get/123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"stops",
+						"get",
+						"123456"
+					],
+					"query": [
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Can't Delete Another User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Can\\'t Delete Another User', function (){",
+							"    pm.response.to.have.status(403);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/delete/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"delete",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('An Existing User Can be Deleted', function (){",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Delete User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('A Non-Existing User Can\\'t be Deleted', function (){",
+							"    pm.response.to.have.status(401);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User for Admin Testing",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let email = 'johnnyappleseed@gmail.com';",
+							"pm.environment.set('email', email);",
+							"let name = 'Johnathan Apples';",
+							"pm.environment.set('name', name);",
+							"let password = 'VerySecure123';",
+							"pm.environment.set('password', password);",
+							"let phone = '8937654123';",
+							"pm.environment.set('phone', phone);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Account Created for Admin Testing', function (){",
+							"    pm.response.to.have.status(201);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User for Admin Testing",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User Logged In for Admin Testing', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    pm.environment.set('token', data.token);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Information for Admin Testing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get User Id using Token for Admin Testing', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    pm.environment.set('userId', data.userId);",
+							"})",
+							"pm.test(\"Check User Email Received\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.email).to.eql(pm.environment.get(\"email\"));",
+							"});",
+							"pm.test(\"Created User is Not an Admin\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.admin).to.eql(0);",
+							"    pm.environment.set('admin', data.admin);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Favorite For Admin Testing",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let routeId = '4015030';",
+							"pm.environment.set('routeId', routeId);",
+							"let stopId = '4259062';",
+							"pm.environment.set('stopId', stopId);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Adding a Valid Route/Stop Pair for Admin Testing', function (){",
+							"    pm.response.to.have.status(201);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text"
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/favorites/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"favorites",
+						"add"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let adminEmail = 'admin@admin.com';",
+							"pm.environment.set('adminEmail', adminEmail);",
+							"let adminPassword = 'password';",
+							"pm.environment.set('adminPassword', adminPassword);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('An Admin Can Login', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    pm.environment.set('token', data.token);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{adminEmail}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{adminPassword}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Admin Privilages",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get Curent Admin Id using Token', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    pm.environment.set('adminId', data.userId);",
+							"})",
+							"pm.test(\"Correct Admin Email Received\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.email).to.eql(pm.environment.get(\"adminEmail\"));",
+							"});",
+							"pm.test(\"Correrct Admin Status Received\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.admin).to.eql(1);",
+							"    pm.environment.set('adminAdmin', data.admin);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User as Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get a User as an Admin Using Token', function (){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"pm.test(\"User's Correct Email Received by Admin\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.email).to.eql(pm.environment.get(\"email\"));",
+							"});",
+							"pm.test(\"User's Correct Name Received by Admin\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.name).to.eql(pm.environment.get(\"name\"));",
+							"});",
+							"pm.test(\"User's Correct Phone Received by Admin\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.phone).to.eql(pm.environment.get(\"phone\"));",
+							"});",
+							"pm.test(\"User's Admin Status Received by Admin\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.admin).to.be.oneOf([1,0]);",
+							"    pm.environment.set('admin', data.admin);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/get/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"get",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Get User as Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Admin Can\\'t Recieve an Non-Existing User', function (){",
+							"    pm.response.to.have.status(404);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/get/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"get",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User's Favorites as Admin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Admin Recieved the User\\'s Favorites', function (){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"pm.test('Compare Route/Stop Pair', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    const array = [pm.environment.get(\"stopId\")]",
+							"    pm.expect(data[0][\"routeId\"]).to.eql(pm.environment.get(\"routeId\"));",
+							"    pm.expect(data[0][\"stopIdList\"]).to.eql(array);",
+							"    ",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/favorites/getByUser/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"favorites",
+						"getByUser",
+						"{{userId}}"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Get Favorites by Admin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Admin Can\\'t Access Favorites of a Non-Existent User', function (){",
+							"    pm.response.to.have.status(404);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/favorites/getByUser/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"favorites",
+						"getByUser",
+						"0"
+					],
+					"query": [
+						{
+							"key": "routeId",
+							"value": "4015030",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users as Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Admin can get all Users', function (){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"pm.test(\"Get all Users is not Empty and Includes at Least Admin and User\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.length).to.be.above(1);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Update User Admin Status as Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Admin Parameter Can Only be 0 or 1', function (){",
+							"    pm.response.to.have.status(400);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let admin2 = '2';",
+							"pm.environment.set('admin2', admin2);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email2}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "{{name2}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "{{phone2}}",
+							"type": "text"
+						},
+						{
+							"key": "admin",
+							"value": "{{admin2}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/update/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"update",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Non-Existent User as Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Admin Can\\'t Update Non-Existent User', function (){",
+							"    pm.response.to.have.status(404);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email2}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "{{name2}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone2}}",
+							"type": "text"
+						},
+						{
+							"key": "admin",
+							"value": "{{admin2}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/update/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"update",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User no Changes as Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Admin Made no Changes to User: Update Contained Same Values as Current User\\'s Values', function (){",
+							"    pm.response.to.have.status(400);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let admin2 = '2';",
+							"pm.environment.set('admin2', admin2);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						},
+						{
+							"key": "admin",
+							"value": "{{admin2}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/update/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"update",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User's Email to Existing Email as Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Admin Can\\'t Update User if Email is in Use', function (){",
+							"    pm.response.to.have.status(409);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{adminEmail}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "{{name2}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "{{phone2}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "admin",
+							"value": "{{admin2}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/update/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"update",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User's Information as Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Changes Are Made to a User if Request Body is the Different From Current Values', function (){",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let admin2 = '1';",
+							"pm.environment.set('admin2', admin2);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email2}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "{{name2}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone2}}",
+							"type": "text"
+						},
+						{
+							"key": "admin",
+							"value": "{{admin2}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/users/update/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"update",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check if Admin Updated User's Information",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get a User as an Admin Using Token', function (){",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"pm.test(\"Confirm Admin Updated User's Email\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.email).to.eql(pm.environment.get(\"email2\"));",
+							"});",
+							"pm.test(\"Confirm Admin Updated Name\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.name).to.eql(pm.environment.get(\"name2\"));",
+							"});",
+							"pm.test(\"Confirm Admin Updated Phone\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.phone).to.eql(pm.environment.get(\"phone2\"));",
+							"});",
+							"pm.test(\"Confirm Admin Updated Admin Status\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.admin).to.eql(parseInt(pm.environment.get(\"admin2\")));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/get/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"get",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Can Delete User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('An Existing User Can be Deleted By Admins', function (){",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/delete/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"delete",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Delete User as Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('A Non-Existing User Can\\'t be Deleted by Admin', function (){",
+							"    pm.response.to.have.status(404);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/delete/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"delete",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Admin Deleted User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Check if Admin Deleted User', function (){",
+							"    pm.response.to.have.status(404);",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/users/get/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"users",
+						"get",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Route for Admin Testing",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Displays Route Based on RouteId', function (){",
+							"    pm.response.to.have.status(200);",
+							"    const data = pm.response.json();",
+							"    if(data.enabled===1){",
+							"        pm.environment.set('enabled', \"disable\");",
+							"    }",
+							"    else{",
+							"        pm.environment.set('enabled', \"enable\");",
+							"    }",
+							"})",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "routeId",
+							"value": "{{routeId}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "stopId",
+							"value": "{{stopId}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/get/{{routeId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"get",
+						"{{routeId}}"
+					],
+					"query": [
+						{
+							"key": "stopId",
+							"value": "4259062",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Enable Route as Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Admin Can\\'t Enable a Non-Existent Route', function (){",
+							"    pm.response.to.have.status(404);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/enable/123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"enable",
+						"123456"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Disable Route as Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Admin Can\\'t Disable a Non-Existent Route', function (){",
+							"    pm.response.to.have.status(404);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/disable/123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"disable",
+						"123456"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enable/Disable Route as Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Toggle Route Between Active and Inactive Status', function (){",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/{{enabled}}/{{routeId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"{{enabled}}",
+						"{{routeId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enable/Disable Route as Admin Again",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Toggle Route Between Active and Inactive Status, if this Passes then Admin can Successfully Enable and Disable Route', function (){",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if(pm.environment.get(\"enabled\")===\"enable\"){",
+							"    pm.environment.set('enabled', \"disable\");",
+							"}",
+							"else{",
+							"    pm.environment.set('enabled', \"enable\");",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/{{enabled}}/{{routeId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"{{enabled}}",
+						"{{routeId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Can't Enable or Disable a Route Twice",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('No Changes are Made if Route was Enabled and set to be Enabled and if it was set to be Disabled if it was Disabled', function (){",
+							"    pm.response.to.have.status(202);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:3100/routes/{{enabled}}/{{routeId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"routes",
+						"{{enabled}}",
+						"{{routeId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

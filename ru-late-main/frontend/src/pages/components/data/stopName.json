@@ -1,0 +1,252 @@
+{
+   "4229496":{
+       "Name":"Student Activities Center Northbound",
+       "Lat":40.5039,
+       "Lng":-74.44883
+    },
+    "4229570":{ 
+       "Name":"Livingston Plaza",
+       "Lat":40.525106,
+       "Lng":-74.438584
+    },
+    "4229596":{
+       "Name":"Lipman Hall",
+       "Lat":40.481294,
+       "Lng":-74.436266
+    },
+    "4229620":{
+       "Name":"The Yard",
+       "Lat":40.499616,
+       "Lng":-74.448202
+    },
+    "4229696":{
+       "Name":"Student Activities Center Southbound",
+       "Lat":40.504249,
+       "Lng":-74.449742
+    },
+    "4231636":{
+       "Name":"Hill Center (SB)",
+       "Lat":40.521872,
+       "Lng":-74.463417
+    },
+    "4253700":{
+       "Name":"College Hall",
+       "Lat":40.485509,
+       "Lng":-74.437198
+    },
+    "4253718":{
+       "Name":"SoCam Apts NB",
+       "Lat":40.492293,
+       "Lng":-74.44324
+    },
+    "4253722":{
+       "Name":"180 W Market St",
+       "Lat":40.741274,
+       "Lng":-74.186955
+    },
+    "4253724":{
+       "Name":"Bergen Building",
+       "Lat":40.743386,
+       "Lng":-74.191461
+    },
+    "4253726":{
+       "Name":"Blumenthal Hall",
+       "Lat":40.739281,
+       "Lng":-74.175143
+    },
+    "4253728":{
+       "Name":"Boyden Hall",
+       "Lat":40.740978,
+       "Lng":-74.174247
+    },
+    "4253730":{
+       "Name":"CLJ",
+       "Lat":40.741242,
+       "Lng":-74.172097
+    },
+    "4253732":{
+       "Name":"Dental School",
+       "Lat":40.742285,
+       "Lng":-74.190294
+    },
+    "4253734":{
+       "Name":"ECC",
+       "Lat":40.736597,
+       "Lng":-74.178506
+    },
+    "4253738":{
+       "Name":"Hospital",
+       "Lat":40.741868,
+       "Lng":-74.191581
+    },
+    "4253742":{
+       "Name":"ICPH",
+       "Lat":40.742787,
+       "Lng":-74.183882
+    },
+    "4253754":{
+       "Name":"Medical School",
+       "Lat":40.739719,
+       "Lng":-74.189567
+    },
+    "4253756":{
+       "Name":"Medical School (Arrival)",
+       "Lat":40.739686,
+       "Lng":-74.189452
+    },
+    "4253758":{
+       "Name":"NJIT",
+       "Lat":40.741192,
+       "Lng":-74.178811
+    },
+    "4253760":{
+       "Name":"Penn Station",
+       "Lat":40.734819,
+       "Lng":-74.164721
+    },
+    "4253762":{
+       "Name":"Physical Plant",
+       "Lat":40.744492,
+       "Lng":-74.172539
+    },
+    "4253766":{
+       "Name":"University North",
+       "Lat":40.746147,
+       "Lng":-74.17175
+    },
+    "4253768":{
+       "Name":"Washington Park",
+       "Lat":40.743789,
+       "Lng":-74.170569
+    },
+    "4253770":{
+       "Name":"Broad St",
+       "Lat":40.746906,
+       "Lng":-74.1711
+    },
+    "4254110":{
+       "Name":"Livingston Student Center",
+       "Lat":40.524,
+       "Lng":-74.43663
+    },
+    "4259010":{
+       "Name":"Stadium West Lot",
+       "Lat":40.514479,
+       "Lng":-74.466153
+    },
+    "4259014":{
+       "Name":"College Avenue Student Ctr",
+       "Lat":40.503665,
+       "Lng":-74.452402
+    },
+    "4259016":{
+       "Name":"Hill Center (NB)",
+       "Lat":40.52192,
+       "Lng":-74.463263
+    },
+    "4259018":{
+       "Name":"Sciences Building",
+       "Lat":40.523938,
+       "Lng":-74.464221
+    },
+    "4259030":{
+       "Name":"Red Oak Lane",
+       "Lat":40.482987,
+       "Lng":-74.437535
+    },
+    "4259040":{
+       "Name":"Werblin Recreation Center",
+       "Lat":40.518637,
+       "Lng":-74.459854
+    },
+    "4259046":{
+       "Name":"Busch-Livingston Health Center",
+       "Lat":40.523479,
+       "Lng":-74.442508
+    },
+    "4259048":{
+       "Name":"Allison Road Classrooms",
+       "Lat":40.523612,
+       "Lng":-74.465127
+    },
+    "4259050":{
+       "Name":"SoCam Apts SB",
+       "Lat":40.491856,
+       "Lng":-74.443093
+    },
+    "4259054":{
+       "Name":"Biel Road",
+       "Lat":40.48,
+       "Lng":-74.432522
+    },
+    "4259058":{
+       "Name":"Gibbons",
+       "Lat":40.48523,
+       "Lng":-74.43194
+    },
+    "4259062":{
+       "Name":"Busch Student Ctr",
+       "Lat":40.523747,
+       "Lng":-74.458373
+    },
+    "4259072":{
+       "Name":"City Lot 15",
+       "Lat":39.952097,
+       "Lng":-75.126481
+    },
+    "4259074":{
+       "Name":"City Lot 16",
+       "Lat":39.953253,
+       "Lng":-75.125933
+    },
+    "4259076":{
+       "Name":"Law School",
+       "Lat":39.947582,
+       "Lng":-75.120661
+    },
+    "4259078":{
+       "Name":"Nursing and Science Building [NSB]",
+       "Lat":39.943979,
+       "Lng":-75.120531
+    },
+    "4259080":{
+       "Name":"Business and Science Building [BSB]",
+       "Lat":39.948557,
+       "Lng":-75.123476
+    },
+    "4259082":{
+       "Name":"Joint Health Science Center",
+       "Lat":39.941756,
+       "Lng":-75.119147
+    },
+    "4259568":{
+       "Name":"Werblin Main Entrance",
+       "Lat":40.518798,
+       "Lng":-74.459984
+    },
+    "4259722":{
+       "Name":"Henderson",
+       "Lat":40.48095,
+       "Lng":-74.42872
+    },
+    "4261662":{
+       "Name":"Public Safety Building on Commercial Southbound",
+       "Lat":40.487913,
+       "Lng":-74.439383
+    },
+    "4266590":{
+       "Name":"Quads",
+       "Lat":40.519863,
+       "Lng":-74.433567
+    },
+    "4266814":{
+       "Name":"New Street",
+       "Lat":40.7437,
+       "Lng":-74.18132
+    },
+    "4268596":{
+       "Name":"Buell Apartments",
+       "Lat":40.521807,
+       "Lng":-74.456701
+    }
+   }
